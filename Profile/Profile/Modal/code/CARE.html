@@ -1,0 +1,75 @@
+<form action="" id="addlead2">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="purchasegrp">
+                <label for="unitname" class="purchaseinfo mb-1">
+                    Candidate</label>
+                <input type="mail" name="subject" class="form-control purchaseselects">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="purchasegrp">
+                <label for="unitname" class="purchaseinfo mb-1"><span class="aster">* </span>
+                    Time</label>
+                <input type="time" name="subject" class="form-control purchaseselects">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="purchasegrp">
+                <label for="tags" class="purchaseinfo "><span class="aster">* </span> Mailing results</label>
+                <input type="mail" name="subject" class="form-control purchaseselects">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="purchasegrp">
+                <label for="name" name="content" class="emailpro"><span class="aster">* </span>Description </label>
+                <div id="summernote"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 blkftr">
+            <div class="modal-footer taskfooter">
+                <button type="button" class="taskclose1" data-bs-dismiss="modal">
+                    CLOSE
+                </button>
+                <button type="submit" class="tasksave1">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $('#summernote').summernote({
+        placeholder: '',
+        tabsize: 2,
+        height: 100
+    });
+</script>
+<script>
+    $('#addlead2').formValidation({
+        framework: 'bootstrap',
+        fields: {
+            subject: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required'
+                    }
+                }
+            },
+            content: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required'
+                    }
+                }
+            },
+
+        }
+    })  
+</script>

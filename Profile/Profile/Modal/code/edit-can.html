@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRM</title>
+    <!--Bootstrap 5 CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/Bootstrap5/css/bootstrap.css" />
+
+    <!--Bootstrap 5 JS--->
+    <script type="text/javascript" src="../../assets/Bootstrap5/js/bootstrap.bundle.min.js"></script>
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/de952d599f.js" crossorigin="anonymous"></script>
+
+    <!--datatables CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/buttons.dataTables.min.css" />
+
+    <!--Datatables js-->
+    <script type="text/javascript" src="../../assets/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="./datatable/datatable.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.responsive.min.js"></script>
+
+    <!--Datatable dropdown----->
+    <script type="text/javascript" src="../../assets/js/datatables.pdfmake.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.vfs_fonts.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.jszip.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.print.min.js"></script>
+
+    <!--Dropdown select-->
+    <link rel="stylesheet" href="../../assets/Bootstrap5/css/bootstrap-select.min.css" />
+    <script src="../../assets/Bootstrap5/js/bootstrap-select.min.js"></script>
+
+    <!--summernote_textarea-->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <!-- CSS -->
+    <!-- validation -->
+    <script src="https://Login.loyalwings.com/assets/js/formValidation.min.js"></script>
+    <script src="https://Login.loyalwings.com/assets/js/bootstrap_validation.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <style>
+        .help-block {
+            margin-left: 10px;
+            color: red;
+        }
+
+        .h4-text {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .p-primary {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            border-color: #337ab7;
+        }
+
+        .p-primary-heading {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #337ab7;
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .p-primary-body {
+            background: #fff;
+            border: 1px solid #dce1ef;
+            border-radius: 4px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .p-sec {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            border-color: #bce8f1;
+        }
+
+        .p-sec-heading {
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .p-sec-body {
+            background: #fff;
+            border: 1px solid #dce1ef;
+            border-radius: 4px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .p-sucess {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            border-color: #d6e9c6;
+        }
+
+        .p-heading-sucess {
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+
+        .p-defult {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            border-color: #ddd;
+        }
+
+        .p-defult-heading {
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            color: #333;
+            background-color: #f5f5f5;
+            border-color: #ddd;
+        }
+
+        .p-warning {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            border-color: #faebcc;
+        }
+
+        .p-warning-heading {
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
+    </style>
+
+</head>
+
+<body id="wrapper">
+    <div class="tblcontainer">
+        <div class="row mt-1">
+            <div class="col-md-12">
+                <h4 class="h4-text">Edit</h4>
+            </div>
+        </div>
+
+        <hr class="fileline mt-1">
+        <form action="" id="pform">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="p-primary">
+                        <div class="p-primary-heading">
+                            General Details
+                        </div>
+                        <div class="p-primary-body">
+                            <div class="col-md-12">
+                                <div class="purchasegrp">
+                                    <label class="purchaseinfo mb-1">Recruitment campaign</label>
+                                    <select class="form-control selectpicker" data-live-search="true">
+                                        <option value="1">Win education</option>
+                                        <option value="2">12-Math teacher</option>
+                                        <option value="3">Laravel job</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="purchasegrp">
+                                    <label class="purchaseinfo"><span class=" aster">* </span>Candidate Code</label>
+                                    <input type="text" class="form-control purchaseselects" name="code">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo"><span class=" aster">* </span>First Name</label>
+                                        <input type="text" class="form-control purchaseselects" name="fname">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Last Name</label>
+                                        <input type="text" class="form-control purchaseselects" name="lname">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Birthday</label>
+                                        <input type="date" class="form-control purchaseselects " />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label for="tags" class="purchaseinfo mb-1">Gender</label>
+                                        <select class="form-control selectpicker" data-live-search="true">
+                                            <option value="0">None</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo mb-1">Desired
+                                            salary</label>
+                                        <div class=" dropdown-with-icon " style="border-radius:4px 0px 0px 4px;">
+                                            <input type="text" id="concode" class="selectpicker form-control "
+                                                name="newval">
+                                            <button type="text" class="select-container dropdownplusbtn"
+                                                style="background-color: rgb(235, 229, 229);">
+                                                <div class="dropdown ">
+                                                    <span class="discount-type-selected ">
+                                                        PHP </span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="emailpro ">Birthplace</label>
+                                        <textarea class="textdesc  " rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="emailpro ">Hometown</label>
+                                        <textarea class="textdesc  " rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Identification</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Days for identity</label>
+                                        <input type="date" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Place of issue</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo mb-1">Marital status</label>
+                                        <select class="form-control selectpicker" multiple>
+                                            <option value="0">None Selected</option>
+                                            <option value="1">Single</option>
+                                            <option value="2">Married</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Nationality</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Nationality</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo mb-1">Religion</label>
+                                        <input type="text" class="form-control purchaseselects">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Height(m)</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Weight(kg)</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="purchasegrp">
+                                        <label for="name" class="emailpro">Introduce yourself</label>
+                                        <textarea class="textdesc  " rows="6"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label for="unitname" class="purchaseinfo mb-1">
+                                            Skill name</label>
+                                        <select class="selectpicker multiselect form-control" name="PayAcc"
+                                            data-name="name" multiple data-actions-box="true" data-live-search="true">
+                                            <option value="0">None selected</option>
+                                            <option value="1">Cost of sales</option>
+                                            <option value="2">tavell</option>
+                                            <option value="3">test_5_cat</option>
+                                            <option value="4">Bank Transaction Charges</option>
+                                            <option value="5">Transporter</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label for="unitname" class="purchaseinfo mb-1">
+                                            Seniority</label>
+                                        <select class="selectpicker form-control" name="currency">
+                                            <option value="0">No senority yet</option>
+                                            <option value="1">One year</option>
+                                            <option value="2">Two year</option>
+                                            <option value="3">Three year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="purchasegrp">
+                                        <label for="name" class="emailpro">Interests</label>
+                                        <textarea class="textdesc  " rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="p-sec">
+                        <div class="p-sec-heading">
+                            Contact Info
+                        </div>
+                        <div class="p-sec-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Phone number</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Alternate contact number</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo"><span class=" aster">* </span>Email</label>
+                                        <input type="text" name="email" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Skype</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">Facebook</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="purchasegrp">
+                                        <label class="purchaseinfo">linkedin</label>
+                                        <input type="text" class="form-control purchaseselects">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="purchasegrp">
+                                        <label class="emailpro ">Resident</label>
+                                        <textarea class="textdesc  " rows="4"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="purchasegrp">
+                                        <label class="emailpro ">Current accommodation</label>
+                                        <textarea class="textdesc  " rows="4"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class=" row">
+                                <div class="col-md-12">
+                                    <div id="img" style="border: 30px !important;">
+                                        <img src="../../assets/img/user-placeholder.jpg" alt="" width="180px "
+                                            height="180px">
+                                        <label for="myfile" class=" file-input-label">
+                                            <input type="file" id="myfile">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="text-container">
+                                    <div class="file-name"></div>
+                                    <button class="delete-button btn-danger" id="deleteBtn">Delete</button>
+                                </div>
+                            </div>
+                            <p class="ms-5">choose picture</p>
+                            <hr class="fileline">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class=" excfnthr">
+                                        <label for="" class="excfllbl">Candidate CV</label>
+                                        <div class="input-group d-flex flex-nowrap">
+                                            <input type="file" class="chooseexcfle">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Seniority-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="p-sucess">
+                        <div class="p-heading-sucess">
+                            Seniority
+                        </div>
+                        <div id="parentbox">
+                            <div class="p-sec-body">
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">From date</label>
+                                            <input type="date" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">To date</label>
+                                            <input type="date" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Position</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo"></label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Contact person</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Salary</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Reason for leaving job</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="purchasegrps">
+                                            <label class="emailpro ">Job description</label>
+                                            <textarea class="textdesc  " rows="4"></textarea>
+                                        </div>
+                                        <button type="button" id="addplusbtn" class="image-plus select-container"><span
+                                                class="input-group-addon colorlabels"><i
+                                                    class="bi bi-plus-lg plus-green"></i></span></button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Literacy-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="p-defult">
+                        <div class="p-defult-heading">
+                            Literacy
+                        </div>
+                        <div id="parentboxs">
+                            <div class="p-sec-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">From date</label>
+                                            <input type="date" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">To date</label>
+                                            <input type="date" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Diploma</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Training places</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Specialized</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Percentage</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button type="button" id="addplusbtns" class="image-plus select-container"><span
+                                        class="input-group-addon colorlabels"><i
+                                            class="bi bi-plus-lg plus-green"></i></span></button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Reference-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="p-warning">
+                        <div class="p-warning-heading">
+                            Reference
+                        </div>
+                        <div id="reference">
+                            <div class="p-sec-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Relationship</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Name</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Birthday</label>
+                                            <input type="date" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Job</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Address</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="purchasegrp">
+                                            <label class="purchaseinfo">Phone</label>
+                                            <input type="text" class="form-control purchaseselects " />
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" id="addplusbtnss" class="image-plus select-container"><span
+                                        class="input-group-addon colorlabels"><i
+                                            class="bi bi-plus-lg plus-green"></i></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class=" taskfooter">
+
+                        <button type="submit" class="tasksave1 pull-right">SAVE</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+
+    <!--upload-files-->
+
+    <script>
+        const dropZone = document.querySelector('#img');
+        const inputElement = document.querySelector('#myfile');
+        const img = document.querySelector('img');
+        const p = document.querySelector('.dropfile');
+        const fileNameElement = document.querySelector('.file-name');
+        const deleteButton = document.querySelector('#deleteBtn');
+
+        inputElement.addEventListener('change', function (e) {
+            const file = this.files[0];
+            if (file) {
+                img.style.display = "block";
+                p.style.display = 'none';
+                fileNameElement.textContent = file.name;
+                deleteButton.style.display = 'inline-block';
+
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = function () {
+                    const src = this.result;
+                    img.src = src;
+                    img.alt = file.name;
+                }
+            }
+        });
+
+        dropZone.addEventListener('click', () => inputElement.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            img.style.display = "block";
+            const file = e.dataTransfer.files[0];
+            // p.style.display = 'none';
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = function () {
+                e.preventDefault();
+                p.style.display = 'none';
+                fileNameElement.textContent = file.name;
+                deleteButton.style.display = 'inline-block';
+
+                const src = this.result;
+                img.src = src;
+                img.alt = file.name;
+            }
+        });
+
+        deleteButton.addEventListener('click', () => {
+            img.src = '';
+            img.style.display = 'none';
+            p.style.display = 'block';
+            fileNameElement.textContent = '';
+            deleteButton.style.display = 'none';
+            inputElement.value = '';
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var el1 = '<div class="p-sec-body parent"><div class="row"><div class="col-md-3 "><div class="purchasegrp"><label class="purchaseinfo">From date</label><input type="date" class="form-control purchaseselects " /></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo">To date</label><input type="date" class="form-control purchaseselects " /></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo">Position</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo"></label><input type="text" class="form-control purchaseselects " /></div></div></div><div class="row"><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo">Contact person</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-3"><div class="purchasegrp"><label class="purchaseinfo">Salary</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-6"><div class="purchasegrp"><label class="purchaseinfo">Reason for leaving job</label><input type="text" class="form-control purchaseselects " /> </div></div></div><div class=" row"><div class="col-md-12"><div class="purchasegrps"><label class="emailpro ">Job description</label><textarea class="textdesc  " rows="4"></textarea></div><button type="button" class="_delete image-plus select-container" style="background-color: #fc2d42;"><span class="input-group-addon"><i class="bi bi-dash-lg plus-green" style="background-color: #fc2d42;"></i></span></button><div></div></div>';
+            $("#addplusbtn").click(function () {
+                $("#parentbox").append(el1);
+            })
+            $(document).on('click', '._delete', function () {
+                $(this).closest('.parent').remove();
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            var el1 = '<div class="p-sec-body parent"><div class="row"><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">From date</label><input type="date" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">To date</label><input type="date" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Diploma</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Training places</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Specialized</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Percentage</label><input type="text" class="form-control purchaseselects " /></div></div></div><button type="button" class="_delete image-plus select-container" style="background-color: #fc2d42;"><span class="input-group-addon"><i class="bi bi-dash-lg plus-green" style="background-color: #fc2d42;"></i></span></button></div>';
+            $("#addplusbtns").click(function () {
+                $("#parentboxs").append(el1);
+            })
+            $(document).on('click', '._delete', function () {
+                $(this).closest('.parent').remove();
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            var el1 = '<div class="p-sec-body parent"><div class="row"><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Relationship</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Name</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Birthday</label><input type="date" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Job</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Address</label><input type="text" class="form-control purchaseselects " /></div></div><div class="col-md-2"><div class="purchasegrp"><label class="purchaseinfo">Phone</label><input type="text" class="form-control purchaseselects " /></div></div></div><button type="button" class="_delete image-plus select-container" style="background-color: #fc2d42;"><span class="input-group-addon"><i class="bi bi-dash-lg plus-green" style="background-color: #fc2d42;"></i></span></button></div>';
+            $("#addplusbtnss").click(function () {
+                $("#reference").append(el1);
+            })
+            $(document).on('click', '._delete', function () {
+                $(this).closest('.parent').remove();
+            })
+        })
+    </script>
+    <script>
+        $('#pform').formValidation({
+            framework: 'bootstrap',
+            fields: {
+                fname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'This field is required'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'This field is required'
+                        }
+                    }
+                },
+
+            }
+        })  
+    </script>
+</body>
+
+</html>

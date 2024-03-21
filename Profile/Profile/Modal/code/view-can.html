@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRM</title>
+    <!--Bootstrap 5 CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/Bootstrap5/css/bootstrap.css" />
+
+    <!--Bootstrap 5 JS--->
+    <script type="text/javascript" src="../../assets/Bootstrap5/js/bootstrap.bundle.min.js"></script>
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/de952d599f.js" crossorigin="anonymous"></script>
+
+    <!--datatables CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/buttons.dataTables.min.css" />
+
+    <!--Datatables js-->
+    <script type="text/javascript" src="../../assets/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="./datatable/datatable.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.responsive.min.js"></script>
+
+    <!--Datatable dropdown----->
+    <script type="text/javascript" src="../../assets/js/datatables.pdfmake.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.vfs_fonts.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.jszip.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.print.min.js"></script>
+
+    <!--Dropdown select-->
+    <link rel="stylesheet" href="../../assets/Bootstrap5/css/bootstrap-select.min.css" />
+    <script src="../../assets/Bootstrap5/js/bootstrap-select.min.js"></script>
+
+    <!--summernote_textarea-->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <!-- CSS -->
+    <!-- validation -->
+    <script src="https://Login.loyalwings.com/assets/js/formValidation.min.js"></script>
+    <script src="https://Login.loyalwings.com/assets/js/bootstrap_validation.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <style>
+        .help-block {
+            margin-left: 10px;
+            color: red;
+        }
+
+        .hr1 {
+            margin-top: 10px;
+            border: 0.5px solid;
+            color: #d81b60;
+            margin-bottom: 20px;
+        }
+
+        .hr2 {
+            margin-top: 10px;
+            border: 0.5px solid;
+            color: #fb8c00;
+            margin-bottom: 20px;
+        }
+
+        .h4-text {
+            margin-top: 15px;
+            color: #d81b60;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .h4-text-1 {
+
+            margin-top: 15px;
+            color: #d81b60;
+            font-weight: 500;
+            font-size: 18px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tblcontainer" style="margin-left: 10px !important; margin-right: 10px !important;">
+        <div style="margin-left: 10px !important; margin-right: 10px !important; margin-top: 10px !important;">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="h5-text1">#WEB_67 </h5>
+                </div>
+                <div class="col-md-4">
+                    <div class="purchasegrp  ">
+                        <select class="selectpicker form-control" name="cname">
+                            <option value="0">Change status to</option>
+                            <option value="1">Application</option>
+                            <option value="2">Interview</option>
+                            <option value="3">Send offer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="impbtn-default pull-right"
+                        onclick="window.location.href = 'EDIT-pop.html';"><i class="fa fa-edit"
+                            aria-hidden="true"></i>EDIT</button>
+                    <button type="button" class="hrbtns contractbtn itemgrnbtn pull-right " data-bs-toggle="collapse"
+                        data-bs-target="#date-selector-div-s"><i class="fa-solid fa-user-doctor"></i>CARE</button>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="hrbtns record-button contractbtn pull-right"
+                        onclick="showModal('EMAIL-pop.html','Add item')"><i class="fa fa-envelope"></i>
+                        SEND MAIL
+                    </button>
+                    <button type="button" class=" hrbtns hrrecbtn hrimport pull-right"
+                        onclick="showModal('RATE-pop.html','Rate')"><i class="fa fa-star"></i>RATE</button>
+                </div>
+            </div>
+            <!-- pop -->
+            <div class=" col-auto rounded border pull-right  border-dark collapse " id="date-selector-div-s">
+                <div class="row ">
+                    <div class="col-md-12 mb-3 ">
+                        <button type="submit" class="hrbtns record-button contractbtn "
+                            onclick="showModal('CARE.html',' Send mail')"><i class="fa fa-envelope"></i>
+                            SEND MAIL
+                        </button>
+                        <button type="button" class=" hrbtns hrrecbtn hrimport "
+                            onclick="showModal('CARE.html','Phone')"><i class="fa fa-star"></i>PHONE</button>
+                        <button type="submit" class="hrbtns hrrecbtn hrimport "
+                            onclick="showModal('CARE.html','Test')"><i class="fa fa-envelope  "></i>
+                            TEST
+                        </button>
+                        <button type="button" class=" hrbtns hrrecbtn hrimport  "
+                            onclick="showModal('CARE.html','Interview')"><i class="fa fa-star"></i>INTERVIEW</button>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- pop -->
+            <form action="" id="addlead10">
+                <div class=" container-fluid " style="padding-left: 0px !important; padding-right: 0px !important;">
+                    <hr class="fileline   mb-0">
+                    <div class="row vendcarmt ">
+                        <div class="col-md-12  ">
+                            <div class="desktop ">
+                                <div class="scroll-images custml toptea mt-0">
+
+                                    <div class="child mb-0 mt-0">
+                                        <button class="tablinks tb-links active" type="button"
+                                            onclick="openTab(event, 'general')"><i
+                                                class="fa-solid fa-bars"></i>&nbsp;Details</button>
+                                    </div>
+
+                                    <div class="child mb-0 mt-0">
+                                        <button class="tablinks tb-links" type="button"
+                                            onclick="openTab(event, 'billing')"><i
+                                                class="fa-regular fa-calendar-days"></i>&nbsp;Recruitment
+                                            history</button>
+                                    </div>
+                                    <div class="child mb-0 mt-0">
+                                        <button class="tablinks tb-links" type="button"
+                                            onclick="openTab(event, 'custom')"><i
+                                                class="fa-regular fa-address-card"></i>&nbsp;Capacity profile</button>
+                                    </div>
+
+                                    <div class="child mb-0 mt-0">
+                                        <button class="tablinks tb-links" type="button"
+                                            onclick="openTab(event, 'custfield')"><i
+                                                class="fa-solid fa-paperclip"></i>&nbsp;Attachment</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false"
+                                style="height: 50px;">
+                                <div class="carousel-inner scroll-images">
+
+                                    <div class="carousel-item active" style="text-align: center;">
+                                        <div class="">
+                                            <div class="child mb-0  mt-0"
+                                                style="height:auto; margin-top: 10px !important;">
+                                                <button class="tablinks active tabresact" style="width:70%"
+                                                    type="button" onclick="openTab(event, 'general')"><i
+                                                        class="fa-solid fa-bars"></i>&nbsp;Details</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="text-align: center; ">
+                                        <div class="">
+                                            <div class="child mb-0 mt-0"
+                                                style="height:auto; margin-top: 10px !important;">
+                                                <button class="tablinks tabresact" style="width:70%" type="button"
+                                                    onclick="openTab(event, ' billing')"><i
+                                                        class="fa-regular fa-calendar-days"></i>&nbsp;Recruitment
+                                                    history</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="text-align: center; ">
+                                        <div class="">
+                                            <div class="child mb-0 mt-0"
+                                                style="height:auto; margin-top: 10px !important;">
+                                                <button class="tablinks tabresact" style="width:70%" type="button"
+                                                    onclick="openTab(event, ' custom')"><i
+                                                        class="fa-regular fa-address-card"></i>&nbsp;Capacity
+                                                    profile</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" style="text-align: center;">
+                                        <div class="">
+                                            <div class="child mb-0 mt-0"
+                                                style="height:auto; margin-top: 10px !important;">
+                                                <button class="tablinks tabresact" style="width:70%" type="button"
+                                                    onclick="openTab(event, ' custfield')"><i
+                                                        class="fa-solid fa-paperclip"></i>&nbsp;Attachment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button id="prevButton" class="carousel-control-prev" style="margin-top: 10px;"
+                                        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                        <i class="bi bi-chevron-left icon" style="color:black;font-weight: bold;"></i>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+
+                                    <button id="nextButton" class="carousel-control-next" style="margin-top: 10px;"
+                                        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                        <i class="bi bi-chevron-right icon" style="color:black;font-weight:bold"></i>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="fileline  mt-0 mb-0 ">
+
+                    <!--------------------------- first ------------------------------------------->
+
+                    <div id="general" class="tabcontent mt-0  " style="display:block;">
+
+                        <div class="row ">
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text mt-0 mb-0" style="margin-left: 7px !important; ">General details
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr class="hr1 mb-2 mt-3">
+                            <div class="row">
+                                <div class="col-md-3 pull-left ">
+                                    <img src="../../assets/img/user-placeholder.jpg" width="200px ">
+                                </div>
+                                <div class="col-md-9 pull-right">
+
+                                    <div class="">
+                                        <table class="details-table table table-striped">
+                                            <tbody>
+                                                <tr class="project-overview greyback">
+                                                    <td class="viewjobft"><b>Full name</b></td>
+                                                    <td class="viewjobft">Alfonso erwerwer</td>
+                                                    <td class="viewjobft"><b>Candidate code</b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Gender</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Birthday </b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Nationality</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Nationality</b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Marital status </b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Religion </b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Height(m)</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Weight(kg) </b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text-1" style="margin-left: 7px !important; ">Other info</h4>
+                                </div>
+                            </div>
+                            <hr class="hr2 mt-1 mb-0">
+                            <br>
+                            <div class="row" style="padding-left: 0px !important;">
+                                <div class="col-md-12" style="padding-left: 0px !important;">
+
+                                    <div class="">
+                                        <table class="details-table table table-striped responsive ">
+                                            <tbody>
+                                                <tr class="project-overview greyback">
+                                                    <td class="viewjobft"><b>Campaign</b></td>
+                                                    <td class="viewjobft"><a href="#">2323 - 34233</a></td>
+                                                    <td class="viewjobft"><b>Status</b></td>
+                                                    <td class="viewjobft"><span
+                                                            class=" undelsp overduesp">Potential</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Submission date </b></td>
+                                                    <td class="viewjobft">2023-11-03</td>
+                                                    <td class="viewjobft"><b>Desired salary</b></td>
+                                                    <td class="viewjobft">P0.00</td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Identification</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Days for identity </b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Birthplace </b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Hometown </b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Resident</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Current accommodation </b></td>
+                                                    <td class="viewjobft"></td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Phone number </b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Email</b></td>
+                                                    <td class="viewjobft"> wwr@gesedinet.com</td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Alternate contact number</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Facebook</b></td>
+                                                    <td class="viewjobft"> </td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Skype</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>linkedin</b></td>
+                                                    <td class="viewjobft"> </td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Skill name</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Seniority</b></td>
+                                                    <td class="viewjobft"> </td>
+                                                </tr>
+                                                <tr class="project-overview">
+                                                    <td class="viewjobft"><b>Introduce yourself</b></td>
+                                                    <td class="viewjobft"></td>
+                                                    <td class="viewjobft"><b>Interests</b></td>
+                                                    <td class="viewjobft"> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row" style="padding-left: 0px !important;">
+                                <div class="col-md-12" style="padding-left: 6px !important;">
+                                    <h4 class="h4-text-1">Seniority</h4>
+                                </div>
+                            </div>
+                            <hr class="hr2">
+                            <p style="margin-left: 6px !important;">No result found</p>
+                            <br>
+                            <div class="row" style="padding-left: 0px !important;">
+                                <div class="col-md-12" style="padding-left: 6px !important;">
+                                    <h4 class="h4-text-1">Literacy</h4>
+                                </div>
+                            </div>
+                            <hr class="hr2">
+                            <p style="margin-left: 6px !important;">No result found</p>
+                            <div class="row" style="padding-left: 20px !important;">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text-1">Reference</h4>
+                                </div>
+                            </div>
+                            <hr class="hr2">
+                            <p style="margin-left: 6px !important;">No result found</p>
+                        </div>
+                    </div>
+
+
+                    <!--------------------------- second ------------------------------------------->
+                    <div id="billing" class="tabcontent  mtgb mt-0">
+                        <div class="row mb-4 mt-0 ">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text-1 " style="margin-left: 0px !important; ">Related campaigns
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr class="hr2 mb-0 mt-0">
+                            <div class="row">
+                                <div class="demo-html mt-0">
+                                    <table
+                                        class="example display dataTable display responsive nowrap tblalign table borderless"
+                                        style="width: 100%" aria-describedby="example_info">
+                                        <thead class="theadrow">
+                                            <tr>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Campaign
+                                                </th>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Status
+                                                </th>
+                                                <th class="sorting sorting_asc">
+                                                    Submission date
+                                                </th>
+                                                <th class="sorting">
+                                                    Desired salary
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="#">2323 - 34233-ADMISTRATIVO</a></td>
+                                                <td><span class=" undelsp overduesp">Application</span></td>
+                                                <td>2023-11-03</td>
+                                                <td>$0.00</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text-1">Interview schedule
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr class="hr2 mb-0">
+                            <div class="row">
+                                <div class="demo-html mt-0">
+                                    <table
+                                        class="example1 display dataTable display responsive nowrap tblalign table borderless"
+                                        style="width: 100%" aria-describedby="example_info">
+                                        <thead class="theadrow">
+                                            <tr>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Added by
+                                                </th>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Interview schedule name
+                                                </th>
+                                                <th class="sorting sorting_asc">
+                                                    Time
+                                                </th>
+                                                <th class="sorting">
+                                                    Interview date
+                                                </th>
+                                                <th class="sorting">
+                                                    Recruitment campaign
+                                                </th>
+                                                <th class="sorting">
+                                                    Interviewer
+                                                </th>
+                                                <th class="sorting">
+                                                    Added date
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="#">122</a></td>
+                                                <td>data</td>
+                                                <td>10.00am</td>
+                                                <td>12/01/2023</td>
+                                                <td>12/02/2000</td>
+                                                <td>22/09/200</td>
+                                                <td>22/02/2003</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text-1">Candidate care history
+
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr class="hr2 mb-0">
+                            <div class="row">
+                                <div class="demo-html mt-0">
+                                    <table
+                                        class="example2 display dataTable display responsive nowrap tblalign table borderless"
+                                        style="width: 100%" aria-describedby="example_info">
+                                        <thead class="theadrow">
+                                            <tr>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Type
+                                                </th>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Candidate care staff
+                                                </th>
+                                                <th class="sorting sorting_asc">
+                                                    Time
+                                                </th>
+                                                <th class="sorting">
+                                                    Result
+                                                </th>
+                                                <th class="sorting">
+                                                    Description
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="#">Canva</a></td>
+                                                <td>Honaa</td>
+                                                <td>11.00</td>
+                                                <td>A++</td>
+                                                <td>none</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--------------------------- third ------------------------------------------->
+
+                    <div id="custom" class="tabcontent  mt-0 ">
+                        <div class="row mb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text-1">Candidate evaluation
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr class="hr2  mt-1 mb-2">
+                            <div class="row mb-0">
+                                <div class="col-md-12 ">
+                                    <p class="danger1">There are no reviews for this candidate!</p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <h4 class="h4-text-1 mt-0">Result
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr class="hr2 mt-1 mb-1">
+                            <div class="row">
+                                <div class="demo-html mt-0">
+                                    <table
+                                        class="example3 display dataTable display responsive nowrap tblalign table borderless"
+                                        style="width: 100%" aria-describedby="example_info">
+                                        <thead class="theadrow">
+                                            <tr>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Criteria name
+                                                </th>
+                                                <th class="select-checkbox sorting_disabled">
+                                                    Proportion(%)
+                                                </th>
+                                                <th class="sorting sorting_asc">
+                                                    Score
+                                                </th>
+                                                <th class="sorting">
+                                                    Result
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="#">Sona</a></td>
+                                                <td>100%</td>
+                                                <td>98</td>
+                                                <td>99</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--------------------------- four ------------------------------------------->
+                    <div id="custfield" class="tabcontent">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_md" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close closebtn" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title"></h5>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js">
+    </script>
+
+    <script>
+        function showModal(url, title) {
+            $('#modal_md').on('shown.bs.modal', function () {
+                $('.selectpicker').selectpicker('refresh');
+            });
+            $('#modal_md').modal('show', { backdrop: 'true' });
+            $.ajax({
+                url: url,
+                success: function (response) {
+                    $('#modal_md .modal-title').html(title);
+                    $('#modal_md .modal-body').html(response);
+                }
+            });
+        }
+
+    </script>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        var carousel = document.getElementById("carouselExampleIndicators");
+
+        carousel.addEventListener("slid.bs.carousel", function (event) {
+            var activeSlideIndex = event.to;
+            if (activeSlideIndex === 0) {
+
+                openTab(event, 'general');
+
+            }
+            else if (activeSlideIndex === 1) {
+
+                openTab(event, 'billing');
+
+            }
+            else if (activeSlideIndex === 2) {
+
+                openTab(event, 'custom');
+
+            }
+            else if (activeSlideIndex === 3) {
+
+                openTab(event, 'custfield');
+
+            }
+
+        });
+
+
+
+    </script>
+
+    <!-- summernote -->
+    <script>
+        $('#summernote').summernote({
+            placeholder: '',
+            tabsize: 2,
+            height: 100
+        });
+    </script>
+    <script>
+        const dropZone = document.querySelector('#drop-zone');
+        const inputElement = document.querySelector('#myfile');
+        const img = document.querySelector('img');
+        const p = document.querySelector('.dropfile');
+        const fileNameElement = document.querySelector('.file-name');
+        const deleteButton = document.querySelector('#deleteBtn');
+
+        inputElement.addEventListener('change', function (e) {
+            const file = this.files[0];
+            if (file) {
+                img.style.display = "block";
+                p.style.display = 'none';
+                fileNameElement.textContent = file.name;
+                deleteButton.style.display = 'inline-block';
+
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = function () {
+                    const src = this.result;
+                    img.src = src;
+                    img.alt = file.name;
+                }
+            }
+        });
+
+        dropZone.addEventListener('click', () => inputElement.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            img.style.display = "block";
+            const file = e.dataTransfer.files[0];
+            // p.style.display = 'none';
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = function () {
+                e.preventDefault();
+                p.style.display = 'none';
+                fileNameElement.textContent = file.name;
+                deleteButton.style.display = 'inline-block';
+
+                const src = this.result;
+                img.src = src;
+                img.alt = file.name;
+            }
+        });
+
+        deleteButton.addEventListener('click', () => {
+            img.src = '';
+            img.style.display = 'none';
+            p.style.display = 'block';
+            fileNameElement.textContent = '';
+            deleteButton.style.display = 'none';
+            inputElement.value = '';
+        });
+    </script>
+    <!--Datatable1-->
+    <script>
+        $(document).ready(function () {
+            var table = $('.example').DataTable({
+                language: { lengthMenu: '_MENU_' },
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                dom: 'Blfrtip',
+                buttons: [
+                    {
+                        text: 'EXPORT',
+                        extend: 'collection',
+                        buttons: ['excel', 'csv', 'pdf', 'print'],
+                        className: 'px-3 '
+                    },
+                    {
+                        text: '<i class="bi bi-arrow-repeat p-1" style="font-size:12px"></i>'
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <!--Datatable2-->
+    <script>
+        $(document).ready(function () {
+            var table = $('.example1').DataTable({
+                language: { lengthMenu: '_MENU_' },
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                dom: 'Blfrtip',
+                buttons: [
+                    {
+                        text: 'EXPORT',
+                        extend: 'collection',
+                        buttons: ['excel', 'csv', 'pdf', 'print'],
+                        className: 'px-3'
+                    },
+                    {
+                        text: '<i class="bi bi-arrow-repeat p-1" style="font-size:12px"></i>'
+                    }
+                ]
+            });
+        });
+    </script>
+    <!--Datatable3-->
+    <script>
+        $(document).ready(function () {
+            var table = $('.example2').DataTable({
+                language: { lengthMenu: '_MENU_' },
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                dom: 'Blfrtip',
+                buttons: [
+                    {
+                        text: 'EXPORT',
+                        extend: 'collection',
+                        buttons: ['excel', 'csv', 'pdf', 'print'],
+                        className: 'px-3'
+                    },
+                    {
+                        text: '<i class="bi bi-arrow-repeat p-1" style="font-size:12px"></i>'
+                    }
+                ]
+            });
+        });
+    </script>
+    <!--Datatable4-->
+    <script>
+        $(document).ready(function () {
+            var table = $('.example3').DataTable({
+                language: { lengthMenu: '_MENU_' },
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                dom: 'Blfrtip',
+                buttons: [
+                    {
+                        text: 'EXPORT',
+                        extend: 'collection',
+                        buttons: ['excel', 'csv', 'pdf', 'print'],
+                        className: 'px-3'
+                    },
+
+                    {
+                        text: '<i class="bi bi-arrow-repeat p-1" style="font-size:12px"></i>'
+                    }
+                ]
+            });
+        });
+    </script>
+
+</body>
+
+</html>

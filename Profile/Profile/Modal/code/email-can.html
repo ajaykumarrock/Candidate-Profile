@@ -1,0 +1,77 @@
+<form action="" id="addlead2">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="purchasegrp">
+                <label for="unitname" class="purchaseinfo mb-1"> 
+                    Send to</label>
+                <select class="selectpicker form-control" name="PayAcc" data-name="name"
+                    data-live-search="true" >
+                    <option value="0">None</option>
+                    <option value="1">Cost of sales</option>
+                    <option value="2">tavell</option>
+                    <option value="3">test_5_cat</option>
+                    <option value="4">Bank Transaction Charges</option>
+                    <option value="5">Transporter</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="purchasegrp">
+                <label for="tags" class="purchaseinfo "><span class="aster">* </span> Subject</label>
+                <input type="text" name="subject" class="form-control purchaseselects">
+            </div>
+        </div>
+    </div>
+       
+    <div class="row">
+        <div class="col-md-12">
+            <div class="purchasegrp">
+                <label for="name" name="content" class="emailpro"><span class="aster">* </span>Content </label>
+                <div id="summernote" ></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 blkftr">
+            <div class="modal-footer taskfooter">
+                <button type="button" class="taskclose1" data-bs-dismiss="modal">
+                    CLOSE
+                </button>
+                <button type="submit" class="tasksave1">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+ <!-- summernote -->
+ <script>
+    $('#summernote').summernote({
+        placeholder: '',
+        tabsize: 2,
+        height: 100
+    });
+</script>
+<script>    
+    $('#addlead2').formValidation({
+        framework: 'bootstrap',
+        fields: {
+            subject: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required'        
+                    }
+                }
+            },
+            content: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required'        
+                    }
+                }
+            },
+            
+        }
+    })  
+</script>
